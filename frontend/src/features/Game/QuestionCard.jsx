@@ -31,7 +31,7 @@ function QuestionCard({ item, changed }) {
     const { answer } = event.target;
     const { price } = event.target.dataset;
     if (answer.value.toLowerCase() === itemm.answer.toLowerCase()) {
-      fetch('/data/user', {
+      fetch('/data/user/increment', {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json',
@@ -39,11 +39,24 @@ function QuestionCard({ item, changed }) {
         body: JSON.stringify({
           price,
         }),
-      }).then((res) => res.json());
+      })
+        .then((res) => res.json())
+        .then(() => changed());
       setModal(false);
       setVisible(false);
-      changed();
+      // changed();
     } else {
+      fetch('/data/user/decrement', {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          price,
+        }),
+      })
+        .then((res) => res.json())
+        .then(() => changed());
       setIncorect(true);
     }
   }

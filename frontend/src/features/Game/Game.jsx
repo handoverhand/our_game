@@ -9,10 +9,19 @@ function Game() {
   const [topics, setTopics] = useState([]);
   // const [actualscore, setActualscore] = useState(null);
   const [context, setContext] = useContext(UserContext);
-  const [isChange, setIschange] = useState(false);
+  const [initscore, setInitscore] = useState(null);
+  // const [gamescore, setGamescore] = useState(null);
 
   const changed = () => {
-    setIschange((prev) => !prev);
+    fetch('/data/actualscore')
+      .then((data) => data.json())
+      .then((res) =>
+        setContext({
+          ...context,
+          score: res.score,
+          gameScore: res.score - initscore,
+        })
+      );
   };
 
   useEffect(() => {
@@ -28,20 +37,20 @@ function Game() {
   }, []);
 
   useEffect(() => {
-    console.log('efect');
-    fetch('/data/actualscore')
+    fetch('/data/setinitscore')
       .then((data) => data.json())
-      .then((res) =>
-        setContext({ ...context, score: res.score, login: res.login })
-      );
-  }, [isChange]);
+      .then((data) => setInitscore(data.score));
+  }, []);
+
+  console.log(context.score);
 
   return (
     <>
       <div className="info">
         {' '}
         <div>Сейчас играет: {context.login}</div>
-        <div>Общее количество очков в раунде: {context.score}</div>
+        <div>Общее количество очков пользователя: {context.score}</div>
+        <div>Your game score: {context.gameScore}</div>
       </div>
 
       <div className="game-container">

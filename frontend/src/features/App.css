@@ -1,12 +1,19 @@
+main {
+  background-color: #08457e;
+}
+.navbar {
+  background-color: #08457e;
+  padding: none;
+}
 .container-fluid {
-  background-color: blue;
+  background-color: #08457e;
 }
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #efedf5;
+  background-color: #08457e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,7 +24,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #08457e;
 }
 
 @keyframes App-logo-spin {
@@ -65,8 +72,7 @@
 } */
 
 .game-container {
-  width: 90%;
-  margin-left: 80px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -81,38 +87,31 @@
 .topic-card {
   height: 170px;
   width: 300px;
-  /* border-radius: 10px; */
+  border-radius: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    to right,
-    #e9e9a9,
-    #ffd5a7,
-    #ffc5bc,
-    #ffbeda,
-    #ddc0f0
-  );
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  background-color: #08457e;
 }
 
 .question-container {
   display: flex;
-  width: 100%;
   justify-content: center;
   gap: 10px;
-  height: max-content;
   flex-wrap: wrap;
 }
 
 .question-card {
+  background: gold;
+  box-shadow: 0 -200px 100px -120px crimson inset;
+  border-radius: 30px;
+  animation: background 3s infinite alternate;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 30%;
-  background-color: #8913d8;
   width: 180px;
   height: 170px;
 }
@@ -122,9 +121,6 @@
   font-size: larger;
 }
 
-main {
-  background-color: #efedf5;
-}
 .question-price {
   font-size: 30px;
 }
@@ -134,21 +130,24 @@ main {
 
 .question-modal {
   background-color: rgb(227, 230, 217);
-  width: 600px;
+  width: 50%;
   max-height: 700px;
   position: absolute;
   left: 50%;
   top: 50%;
-  padding: 40px 30px;
+
   border-radius: 10px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease-in-out;
   transform: translate(-50%, -50%);
 }
 .modal-cont {
+  position: relative;
   padding: 20px;
-  background-color: #fff;
+  background-color: none;
   color: #000;
+  z-index: 2;
+  width: 600px;
 }
 
 .overlay {
@@ -212,13 +211,16 @@ main {
 }
 
 .typing-demo {
-  width: 22ch;
-  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
+  position: relative;
+  width: 21ch;
+  /* animation: typing 2s steps(22), blink 0.5s step-end infinite alternate; */
+  /* white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
-  font-family: monospace;
+  font-family: monospace; */
   font-size: 2em;
+  background: none;
+  border: none;
 }
 
 @keyframes typing {
@@ -233,9 +235,11 @@ main {
   }
 }
 .words {
-  color: blue;
+  color: #08457e;
   font-size: 0;
   line-height: 1.5;
+  position: relative;
+  left: 450px;
 }
 
 .words span {
@@ -279,3 +283,155 @@ main {
 .words span:nth-child(7) {
   animation-delay: 3s;
 }
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+/* 3 */
+.btn-3 {
+  background: rgb(162, 204, 221);
+  background: linear-gradient(0deg, rgb(62, 11, 129) 0%, rgb(2, 26, 51) 100%);
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-3 span {
+  top: 10%;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:hover {
+  color: rgba(2, 126, 251, 1);
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+@keyframes background {
+  50% {
+    background: #08457e;
+    box-shadow: 0 -200px 100px -100px yellowgreen inset;
+  }
+}
+
+.waves {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 20px #a4a4a4;
+  overflow: hidden;
+}
+
+.wave1,
+.wave2 {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+}
+
+.wave1 {
+  left: -7%; /*определяем положение блока*/
+  top: 32%;
+  background-color: #a0e9ff; /*окрашиваем блок*/
+  border-radius: 45%; /*закругляем углы*/
+  animation: wave 10s linear infinite; /*добавляем анимацию*/
+}
+.wave2 {
+  left: -40%; /*определяем положение блока*/
+  top: 56%;
+  background-color: #57d0ff; /*окрашиваем блок*/
+  border-radius: 45%; /*закругляем углы*/
+  animation: wave 8s linear infinite; /*добавляем анимацию*/
+}
+
+@keyframes wave {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.game-container {
+  width: 100%;
+  height: 100%;
+  background: crimson;
+  box-shadow: 0 -150px 70px -120px teal inset,
+    0 -220px 70px -120px yellowgreen inset, 0 -280px 70px -120px gold inset;
+  animation: background 4s infinite alternate;
+}
+
+@keyframes background {
+  50% {
+    background: darkviolet;
+    box-shadow: 0 -140px 70px -120px mediumorchid inset,
+      0 -210px 70px -120px teal inset, 0 -280px 70px -120px plum inset;
+  }
+}
+
+/* Helpers */

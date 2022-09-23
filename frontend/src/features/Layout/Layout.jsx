@@ -40,11 +40,7 @@ function Layout() {
             >
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="/lk"
-                    style={{ color: '#4520AB' }}
-                  >
+                  <a className="nav-link" href="/lk" style={{ color: 'white' }}>
                     Личный кабинет
                   </a>
                 </li>
@@ -54,7 +50,7 @@ function Layout() {
                       onClick={logout}
                       className="nav-link"
                       href="/"
-                      style={{ color: '#4520AB' }}
+                      style={{ color: 'white' }}
                     >
                       Выйти
                     </a>

@@ -1,5 +1,5 @@
 const authRouterApi = require('express').Router();
-
+const bcrypt = require('bcrypt');
 const { User } = require('../../db/models');
 
 // Роутер "ЛОГИ" по ресту
@@ -34,6 +34,7 @@ authRouterApi.post('/auth/login', async (req, res) => {
     req.session.user = {
       id: user.id,
       login: user.login,
+      score: user.score,
     };
 
     res.json({ message: 'success', user });
@@ -43,11 +44,9 @@ authRouterApi.post('/auth/login', async (req, res) => {
 });
 
 authRouterApi.post('/auth/reg', async (req, res) => {
-  const { login, password, checkPassword } = req.body;
-
-  let user;
   try {
-    user = await User.findOne({ where: { login } });
+    const { login, password, checkPassword } = req.body;
+    const user = await User.findOne({ where: { login } });
 
     if (user) {
       res.json({
@@ -55,39 +54,29 @@ authRouterApi.post('/auth/reg', async (req, res) => {
       });
       return;
     }
-  } catch ({ message }) {
-    res.json({ error: message });
-    return;
-  }
 
-  try {
     if (checkPassword !== password) {
       res.json({ message: 'Пароли не совпадают.' });
       return;
     }
+
     if (password.length < 7) {
       res.json({ message: 'Пароль должен быть больше 7-ми символов' });
       return;
     }
 
-    // const hash = await bcrypt.hash(password, 10);
-    user = await User.create({ login, password, score: 0 });
+    const hash = await bcrypt.hash(password, 10);
+    const newUser = await User.create({ login, password: hash, score: 0 });
 
     req.session.user = {
-      id: user.id,
-      login: user.login,
+      id: newUser.id,
+      login: newUser.login,
+      score: newUser.score,
     };
+    res.json({ message: 'success', user });
   } catch ({ message }) {
     res.json({ error: message });
-    return;
   }
-
-  req.session.user = {
-    id: user.id,
-    login: user.login,
-    score: user.score,
-  };
-  res.json({ message: 'success', user });
 });
 
 // Роутер "ЛОГАУТА" с удалением сессии

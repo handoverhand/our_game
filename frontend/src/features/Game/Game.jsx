@@ -9,10 +9,11 @@ function Game() {
   const [topics, setTopics] = useState([]);
   // const [actualscore, setActualscore] = useState(null);
   const [context, setContext] = useContext(UserContext);
-  const [isChange, setIschange] = useState(false);
 
   const changed = () => {
-    setIschange((prev) => !prev);
+    fetch('/data/actualscore')
+      .then((data) => data.json())
+      .then((res) => setContext({ ...context, score: res.score }));
   };
 
   useEffect(() => {
@@ -26,13 +27,6 @@ function Game() {
       .then((data) => data.json())
       .then((res) => setTopics(res));
   }, []);
-
-  useEffect(() => {
-    console.log(isChange);
-    fetch('/data/actualscore')
-      .then((data) => data.json())
-      .then((res) => setContext({ ...context, score: res.score }));
-  }, [isChange]);
 
   return (
     <>

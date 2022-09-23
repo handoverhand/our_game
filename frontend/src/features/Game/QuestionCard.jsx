@@ -39,10 +39,12 @@ function QuestionCard({ item, changed }) {
         body: JSON.stringify({
           price,
         }),
-      }).then((res) => res.json());
+      })
+        .then((res) => res.json())
+        .then(() => changed());
       setModal(false);
       setVisible(false);
-      changed();
+      // changed();
     } else {
       fetch('/data/user/decrement', {
         method: 'PUT',
@@ -52,8 +54,9 @@ function QuestionCard({ item, changed }) {
         body: JSON.stringify({
           price,
         }),
-      }).then((res) => res.json());
-      changed();
+      })
+        .then((res) => res.json())
+        .then(() => changed());
       setIncorect(true);
     }
   }

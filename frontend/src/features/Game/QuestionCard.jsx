@@ -30,7 +30,7 @@ function QuestionCard({ item }) {
     event.preventDefault();
     const { answer } = event.target;
     const { price } = event.target.dataset;
-    if (answer.value.toLowerCase() === itemm.answer) {
+    if (answer.value.toLowerCase() === itemm.answer.toLowerCase()) {
       fetch('/data/user', {
         method: 'PUT',
         headers: {

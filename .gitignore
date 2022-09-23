@@ -22,3 +22,5 @@ yarn-error.log*
 
 # production
 /build
+
+.DS_Store

@@ -13,13 +13,13 @@ function Start() {
     <>
       {context.user === null && (
       <div style={{ display: 'flex', width: '100vw', height: '100vh', justifyContent: 'center', alignItems: 'center', columnGap: '1em' }}>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
+        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: 'violet' }}>
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
+        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: 'violet' }}>
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
+        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: 'violet' }}>
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
@@ -30,8 +30,8 @@ function Start() {
           <a href="/">
             <img src="/logo.png" alt="logo" width="700vw" />
           </a>
-          <button type="button" onClick={() => navigate('/reg')} className="btn btn-primary btn-lg" style={{ margin: '10px', backgroundColor: '#4520AB', color: '#29EDFF', width: '250px' }}>Зарегистрироваться</button>
-          <button type="button" onClick={() => navigate('/log')} className="btn btn-primary btn-lg" style={{ margin: '15px', backgroundColor: '#4520AB', color: '#29EDFF', width: '250px' }}>Войти</button>
+          <button type="button" onClick={() => navigate('/reg')} className="btn btn-primary btn-lg" style={{ margin: '10px', backgroundColor: 'violet', color: 'white', width: '250px' }}>Зарегистрироваться</button>
+          <button type="button" onClick={() => navigate('/log')} className="btn btn-primary btn-lg" style={{ margin: '15px', backgroundColor: 'violet', color: 'white', width: '250px' }}>Войти</button>
         </header>
       </div>
       )}

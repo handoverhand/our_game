@@ -16,14 +16,22 @@ import Game from './Game/Game';
 import TopGame from './TopGame/TopGame';
 
 function App() {
-  const [context, setContext] = useState({ user: null, login: null, score: null });
+  const [context, setContext] = useState({
+    user: null,
+    login: null,
+    score: null,
+  });
 
   useEffect(() => {
     fetch('api/')
       .then((result) => result.json())
       .then((data) => {
         const id = setTimeout(() => {
-          setContext({ user: data.isAdmin, login: data.login, score: data.score });
+          setContext({
+            user: data.isAdmin,
+            login: data.login,
+            score: data.score,
+          });
           clearTimeout(id);
         }, 1800);
       });

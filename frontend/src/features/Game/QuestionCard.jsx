@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-function QuestionCard({ item }) {
+function QuestionCard({ item, changed }) {
   const [modal, setModal] = useState(false);
   const [timer, setTimer] = useState(20);
   const [visible, setVisible] = useState(true);
@@ -30,7 +30,7 @@ function QuestionCard({ item }) {
     event.preventDefault();
     const { answer } = event.target;
     const { price } = event.target.dataset;
-    if (answer.value.toLowerCase() === itemm.answer) {
+    if (answer.value.toLowerCase() === itemm.answer.toLowerCase()) {
       fetch('/data/user', {
         method: 'PUT',
         headers: {
@@ -42,6 +42,7 @@ function QuestionCard({ item }) {
       }).then((res) => res.json());
       setModal(false);
       setVisible(false);
+      changed();
     } else {
       setIncorect(true);
     }
@@ -62,7 +63,9 @@ function QuestionCard({ item }) {
         ) : (
           // eslint-disable-next-line react/button-has-type
           <button
-            className="question-card-disabled"
+            className={
+              incorect ? 'question-card-disabled' : 'question-card-answer'
+            }
             disabled
             // onClick={() => { setModal(true); }}
           >
@@ -91,8 +94,18 @@ function QuestionCard({ item }) {
                 method="PUT"
                 onSubmit={(event) => handleSubmit(event, item)}
               >
-                <input type="text" placeholder="Ваш ответ..." name="answer" />
-                <button type="submit">Ответить</button>
+                <input
+                  className="typing-demo"
+                  type="text"
+                  placeholder="Ваш ответ..."
+                  name="answer"
+                />
+                <button
+                  type="submit"
+                  onClick={() => (incorect ? setTimer(1) : setTimer(5))}
+                >
+                  Ответить
+                </button>
               </form>
               <div>
                 Время идет:

@@ -3,7 +3,7 @@ module.exports = {
     await queryInterface.bulkInsert('Questions', [{
       topicId: '1',
       content: 'Самый сложный пятничный проект?',
-      answer: 'судоку',
+      answer: 'Cудоку',
       price: 100,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -17,14 +17,14 @@ module.exports = {
     }, {
       topicId: '1',
       content: 'Кто раздал наибольшее количество автографов в кампусе?',
-      answer: 'адам',
+      answer: 'Aдам',
       price: 300,
       createdAt: new Date(),
       updatedAt: new Date(),
     }, {
       topicId: '1',
       content: 'Кто лучше всех играет в мафию?',
-      answer: 'лейла',
+      answer: 'Лейла',
       price: 400,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -73,7 +73,7 @@ module.exports = {
     }, {
       topicId: '3',
       content: 'Представителей какого города в Эльбрусе больше всего?',
-      answer: 'саратов',
+      answer: 'Саратов',
       price: 100,
       createdAt: new Date(),
       updatedAt: new Date(),

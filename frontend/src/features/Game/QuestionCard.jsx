@@ -93,7 +93,12 @@ function QuestionCard({ item }) {
                 method="PUT"
                 onSubmit={(event) => handleSubmit(event, item)}
               >
-                <input type="text" placeholder="Ваш ответ..." name="answer" />
+                <input
+                  className="typing-demo"
+                  type="text"
+                  placeholder="Ваш ответ..."
+                  name="answer"
+                />
                 <button
                   type="submit"
                   onClick={() => (incorect ? setTimer(1) : setTimer(5))}

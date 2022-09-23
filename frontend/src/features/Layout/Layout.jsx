@@ -10,13 +10,19 @@ function Layout() {
     await fetch('/api/auth/logout');
   }
   return (
-    <div className="">
+    <div className="body">
       <div className="header">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
             <a href="/">
               <img src="/logo.png" alt="logo" width="200vw" />
             </a>
+            <div className="words word-1">
+              <span>Q</span>
+              <span>U</span>
+              <span>I</span>
+              <span>Z</span>
+            </div>
             <button
               className="navbar-toggler"
               type="button"

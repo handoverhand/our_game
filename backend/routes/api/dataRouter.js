@@ -24,7 +24,7 @@ router.get('/setinitscore', async (req, res) => {
   try {
     const { id } = req.session.user;
     const bduser = await User.findByPk(id);
-    console.log(bduser);
+    // console.log(bduser);
     res.json(bduser);
   } catch (error) {
     res.json({ success: false });

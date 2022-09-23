@@ -38,8 +38,12 @@ function Game() {
 
   return (
     <>
-      <div>Сейчас играет: {context.login}</div>
-      <div>Общее количество очков в раунде: {context.score}</div>
+      <div className="info">
+        {' '}
+        <div>Сейчас играет: {context.login}</div>
+        <div>Общее количество очков в раунде: {context.score}</div>
+      </div>
+
       <div className="game-container">
         <div className="topic-container">
           {topics.map((item) => (

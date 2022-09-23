@@ -60,7 +60,11 @@
   background-color: rgb(194, 45, 45);
   font-size: 30px;
 } */
-
+.info {
+  margin-left: 80px;
+  color: #8913d8;
+  margin-bottom: 20px;
+}
 .game-container {
   width: 90%;
   margin-left: 80px;

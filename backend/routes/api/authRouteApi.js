@@ -105,4 +105,13 @@ authRouterApi.get('/', async (req, res) => {
   }
 });
 
+authRouterApi.get('/top', async (req, res) => {
+  try {
+    const top = await User.findAll({ order: [['score', 'DESC']], raw: true });
+    res.json({ top });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
+
 module.exports = authRouterApi;

@@ -76,40 +76,51 @@ function QuestionCard({ item, changed }) {
       {modal && (
         <div className="overlay">
           <div className="question-modal">
-            <div className="modal-cont">
-              <h4 className="question">{item.content}</h4>
-              {incorect ? (
-                <>
-                  <h5>Ответ неверный!</h5>
-                  <p>
-                    Правильный ответ:
-                    {item.answer}
-                  </p>
-                </>
-              ) : (
-                <p> </p>
-              )}
-              <form
-                data-price={item.price}
-                method="PUT"
-                onSubmit={(event) => handleSubmit(event, item)}
-              >
-                <input
-                  className="typing-demo"
-                  type="text"
-                  placeholder="Ваш ответ..."
-                  name="answer"
-                />
-                <button
-                  type="submit"
-                  onClick={() => (incorect ? setTimer(1) : setTimer(5))}
+            <div className="waves">
+              <div className="wave1">z</div>
+              <div className="wave2">v</div>
+
+              <div className="modal-cont">
+                <h4 className="question">{item.content}</h4>
+                {incorect ? (
+                  <>
+                    <h5 style={{ fontSize: '20px' }}>Ответ неверный!</h5>
+                    <p style={{ fontSize: '40px' }}>
+                      Правильный ответ:&nbsp;
+                      {item.answer}
+                    </p>
+                  </>
+                ) : (
+                  <p> </p>
+                )}
+                <form
+                  data-price={item.price}
+                  method="PUT"
+                  onSubmit={(event) => handleSubmit(event, item)}
                 >
-                  Ответить
-                </button>
-              </form>
-              <div>
-                Время идет:
-                {timer}
+                  {!incorect && (
+                    <>
+                      <input
+                        className="typing-demo"
+                        type="text"
+                        placeholder="Ваш ответ..."
+                        name="answer"
+                      />
+                      &nbsp; &nbsp; &nbsp;
+                      <button
+                        className="delete-card custom-btn btn-3"
+                        type="submit"
+                        onClick={() => (incorect ? setTimer(1) : setTimer(5))}
+                      >
+                        Ответить
+                      </button>
+                    </>
+                  )}
+                </form>
+                <div>
+                  Время идет:
+                  {timer}
+                </div>
               </div>
             </div>
           </div>

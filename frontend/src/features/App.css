@@ -2,7 +2,7 @@ main {
   background-color: #08457e;
 }
 .navbar {
-  background-color: #08457e;
+  background-color: #08457e !important;
   padding: none;
 }
 .container-fluid {
@@ -79,6 +79,7 @@ main {
 }
 
 .topic-container {
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -95,6 +96,7 @@ main {
 }
 
 .question-container {
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -239,7 +241,7 @@ main {
   font-size: 0;
   line-height: 1.5;
   position: relative;
-  left: 450px;
+  left: 25%;
 }
 
 .words span {

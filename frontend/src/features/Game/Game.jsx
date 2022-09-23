@@ -9,6 +9,11 @@ function Game() {
   const [topics, setTopics] = useState([]);
   // const [actualscore, setActualscore] = useState(null);
   const [context, setContext] = useContext(UserContext);
+  const [isChange, setIschange] = useState(false);
+
+  const changed = () => {
+    setIschange((prev) => !prev);
+  };
 
   useEffect(() => {
     fetch('/data/questions')
@@ -23,13 +28,17 @@ function Game() {
   }, []);
 
   useEffect(() => {
+    console.log('efect');
     fetch('/data/actualscore')
       .then((data) => data.json())
-      .then((res) => setContext({ ...context, score: res }));
-  });
+      .then((res) =>
+        setContext({ ...context, score: res.score, login: res.login })
+      );
+  }, [isChange]);
 
   return (
     <>
+      <div>Сейчас играет: {context.login}</div>
       <div>Общее количество очков в раунде: {context.score}</div>
       <div className="game-container">
         <div className="topic-container">
@@ -42,7 +51,7 @@ function Game() {
         <div className="question-container">
           {questions.map((item) => (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-            <QuestionCard key={item.id} item={item} />
+            <QuestionCard key={item.id} item={item} changed={changed} />
           ))}
         </div>
       </div>

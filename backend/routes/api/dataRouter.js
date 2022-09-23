@@ -24,7 +24,7 @@ router.get('/actualscore', async (req, res) => {
   try {
     const { id } = req.session.user;
     const user = await User.findByPk(id);
-    res.json(user.score);
+    res.json(user);
   } catch (error) {
     res.json({ success: false });
   }

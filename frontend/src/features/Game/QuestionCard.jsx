@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-function QuestionCard({ item }) {
+function QuestionCard({ item, changed }) {
   const [modal, setModal] = useState(false);
   const [timer, setTimer] = useState(20);
   const [visible, setVisible] = useState(true);
@@ -42,6 +42,7 @@ function QuestionCard({ item }) {
       }).then((res) => res.json());
       setModal(false);
       setVisible(false);
+      changed();
     } else {
       setIncorect(true);
     }

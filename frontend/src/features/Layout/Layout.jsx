@@ -3,8 +3,6 @@ import { Outlet } from 'react-router-dom';
 // import UserContext from '../Context/Context';
 
 function Layout() {
-  // const [context] = useContext(UserContext);
-
   async function logout() {
     await fetch('/api/auth/logout');
   }
@@ -23,6 +21,9 @@ function Layout() {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <a className="nav-link" href="/lk" style={{ color: '#4520AB' }}>Личный кабинет</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/topgamers" style={{ color: '#4520AB' }}>Топ лидеров</a>
                 </li>
                 <li className="nav-item">
                   <li><a onClick={logout} className="nav-link" href="/" style={{ color: '#4520AB' }}>Выйти</a></li>

@@ -19,7 +19,7 @@ function App() {
   const [context, setContext] = useState({
     user: null,
     login: null,
-    score: null,
+    score: 0,
     gameScore: 0,
   });
 
@@ -28,11 +28,12 @@ function App() {
       .then((result) => result.json())
       .then((data) => {
         const id = setTimeout(() => {
-          setContext({
+          setContext((prev) => ({
             user: data.isAdmin,
             login: data.login,
             score: data.score,
-          });
+            gameScore: prev.gameScore,
+          }));
           clearTimeout(id);
         }, 1800);
       });

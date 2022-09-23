@@ -36,7 +36,7 @@ function Lk() {
             <div>Лучший результат: </div>
             <h5>{context.score}</h5>
           </div>
-          <button type="button" onClick={() => navigate('/game')} className="btn btn-primary btn-lg btn-lk" style={{ margin: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Назад</button>
+          <button type="button" onClick={() => navigate('/game')} className="btn btn-primary  btn-lk" style={{ margin: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Назад</button>
         </>
       )}
       {context.user === false && <Page404 />}

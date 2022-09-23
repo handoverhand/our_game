@@ -1,3 +1,6 @@
+.container-fluid {
+  background-color: blue;
+}
 .App {
   text-align: center;
 }
@@ -108,7 +111,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-radius: 10px; */
+  border-radius: 30%;
   background-color: #8913d8;
   width: 180px;
   height: 170px;
@@ -164,9 +167,115 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-radius: 10px; */
+  border-radius: 30%;
   /* background-color: rgb(141, 141, 172); */
   width: 180px;
   height: 170px;
   color: black;
+}
+
+.question-card-answer {
+  background-color: green;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30%;
+  /* background-color: rgb(141, 141, 172); */
+  width: 180px;
+  height: 170px;
+  color: black;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+.question-card:hover {
+  animation: bounce 1s;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+.words {
+  color: blue;
+  font-size: 0;
+  line-height: 1.5;
+}
+
+.words span {
+  font-size: 5rem;
+  display: inline-block;
+  animation: move 3s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-30%, 0);
+  }
+  50% {
+    text-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+  }
+  100% {
+    transform: translate(30%, 0);
+  }
+}
+
+.words span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.words span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.words span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.words span:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.words span:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.words span:nth-child(7) {
+  animation-delay: 3s;
 }

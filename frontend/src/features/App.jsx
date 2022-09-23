@@ -13,6 +13,7 @@ import UserContext from './Context/Context';
 import Layout from './Layout/Layout';
 import Reg from './Auth/Reg';
 import Game from './Game/Game';
+import Account from './Accaunt/Account';
 
 function App() {
   const [context, setContext] = useState({ user: null, login: null, score: null });
@@ -32,7 +33,7 @@ function App() {
     <UserContext.Provider value={[context, setContext]}>
       <Routes>
         <Route index element={<Start />} />
-        <Route path="/lk" element={<Lk />} />
+        <Route path="/lk" element={<Account />} />
         <Route path="/reg" element={<Reg />} />
         <Route path="/log" element={<Login />} />
 

@@ -22,11 +22,12 @@ function App() {
     score: 0,
     gameScore: 0,
   });
-
+  console.log(context);
   useEffect(() => {
     fetch('api/')
       .then((result) => result.json())
       .then((data) => {
+        console.log(data);
         const id = setTimeout(() => {
           setContext((prev) => ({
             user: data.isAdmin,

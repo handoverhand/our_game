@@ -44,13 +44,13 @@ function Login() {
     <>
       {context.user === null && (
       <div style={{ display: 'flex', width: '100vw', height: '100vh', justifyContent: 'center', alignItems: 'center', columnGap: '1em' }}>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
+        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: 'violet' }}>
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
+        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: 'violet' }}>
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
+        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: 'violet' }}>
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
@@ -67,9 +67,9 @@ function Login() {
                 <input type="text" name="login" className="form-control form-control-lg" placeholder="Логин" />
                 <input type="password" name="password" className="form-control form-control-lg" placeholder="Пароль" style={{ marginTop: '10px', marginBottom: '10px' }} />
                 <div className="helpText" style={{ color: 'red' }} />
-                <button type="submit" className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Войти</button>
+                <button type="submit" className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: 'violet', color: 'white' }}>Войти</button>
                 <div>
-                  <button type="submit" onClick={() => navigate('/')} className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Назад</button>
+                  <button type="submit" onClick={() => navigate('/')} className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: 'violet', color: 'white' }}>Назад</button>
                 </div>
               </form>
             </header>

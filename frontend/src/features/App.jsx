@@ -31,6 +31,7 @@ function App() {
             user: data.isAdmin,
             login: data.login,
             score: data.score,
+            gameScore: 0,
           });
           clearTimeout(id);
         }, 1800);

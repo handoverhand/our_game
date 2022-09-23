@@ -20,6 +20,17 @@ router.get('/topics', async (req, res) => {
   }
 });
 
+router.get('/setinitscore', async (req, res) => {
+  try {
+    const { id } = req.session.user;
+    const bduser = await User.findByPk(id);
+    console.log(bduser);
+    res.json(bduser);
+  } catch (error) {
+    res.json({ success: false });
+  }
+});
+
 router.get('/actualscore', async (req, res) => {
   try {
     const { id } = req.session.user;

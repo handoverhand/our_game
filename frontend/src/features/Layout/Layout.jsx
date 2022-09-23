@@ -43,20 +43,20 @@ function Layout() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <li>
-                    <a
-                      onClick={logout}
-                      className="nav-link"
-                      href="/"
-                      style={{ color: 'white' }}
-                    >
-                      Выйти
-                    </a>
-                  </li>
+                  <a
+                    onClick={logout}
+                    className="nav-link"
+                    href="/"
+                    style={{ color: 'white' }}
+                  >
+                    Выйти
+                  </a>
+                </li>
+                <li>
                   <a
                     className="nav-link"
                     href="/topgamers"
-                    style={{ color: '#4520AB' }}
+                    style={{ color: 'white' }}
                   >
                     Топ лидеров
                   </a>

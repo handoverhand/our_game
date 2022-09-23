@@ -13,19 +13,40 @@ function Lk() {
   const navigate = useNavigate();
   const [context] = useContext(UserContext);
   return (
-    <div>
+    <div className="lk">
       {context.user === null && (
-      <div style={{ display: 'flex', width: '100vw', height: '100vh', justifyContent: 'center', alignItems: 'center', columnGap: '1em' }}>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
-          <span className="visually-hidden">Loading...</span>
+        <div
+          style={{
+            display: 'flex',
+            width: '100vw',
+            height: '100vh',
+            justifyContent: 'center',
+            alignItems: 'center',
+            columnGap: '1em',
+          }}
+        >
+          <div
+            className="spinner-grow text-primary"
+            role="status"
+            style={{ backgroundColor: '#4520AB' }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <div
+            className="spinner-grow text-primary"
+            role="status"
+            style={{ backgroundColor: '#4520AB' }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <div
+            className="spinner-grow text-primary"
+            role="status"
+            style={{ backgroundColor: '#4520AB' }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <div className="spinner-grow text-primary" role="status" style={{ backgroundColor: '#4520AB' }}>
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
       )}
       {context.user === true && (
         <>
@@ -36,7 +57,18 @@ function Lk() {
             <div>Лучший результат: </div>
             <h5>{context.score}</h5>
           </div>
-          <button type="button" onClick={() => navigate('/game')} className="btn btn-primary  btn-lk" style={{ margin: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Назад</button>
+          <button
+            type="button"
+            onClick={() => navigate('/game')}
+            className="btn btn-primary  btn-lk"
+            style={{
+              margin: '30px',
+              backgroundColor: '#4520AB',
+              color: '#29EDFF',
+            }}
+          >
+            Назад
+          </button>
         </>
       )}
       {context.user === false && <Page404 />}

@@ -1,20 +1,26 @@
-.Lk{ 
-    color: #4520AB;
-    font-size: 50px;
-    margin:  5vh  30%;
-    position: relative;
-   
-    
-     }
-     .div-lk{
-        position: relative;
-        justify-content: center;
-        margin: 5% 30%;
-        color: #4520AB;
-     }
+body {
+  background: gold;
+  box-shadow: 0 -200px 100px -120px crimson inset;
+  border-radius: 30px;
+  animation: background 3s infinite alternate;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border-radius: 30%;
+}
+.Lk {
+  color: #4520ab;
+  font-size: 50px;
+  margin: 5vh 30%;
+  position: relative;
+}
+.div-lk {
+  position: relative;
+  justify-content: center;
+  margin: 5% 30%;
+  color: #4520ab;
+}
 
-     .btn-lk{
-        position: relative;
-        left: 40%
-     }
-  
+.btn-lk {
+  position: relative;
+  left: 40%;
+}

@@ -440,4 +440,6 @@ main {
   }
 }
 
-/* Helpers */
+.order {
+  height: 100%;
+}

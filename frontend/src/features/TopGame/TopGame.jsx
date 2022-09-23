@@ -14,12 +14,29 @@ function TopGame() {
   }, []);
 
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <div>Топ Лидеров</div>
       <ol>
-        {state && state.map((top) => <li key={top.id}>{`${top.login}   ${top.score}`}</li>)}
+        {state &&
+          state.map((top) => (
+            <li key={top.id}>{`${top.login}   ${top.score}`}</li>
+          ))}
       </ol>
-      <button type="button" onClick={() => navigate('/game')} className="btn btn-primary  btn-lk" style={{ margin: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Назад</button>
+      <button
+        type="button"
+        onClick={() => navigate('/game')}
+        className="btn btn-primary  btn-lk"
+        style={{
+          margin: '30px',
+          backgroundColor: '#4520AB',
+          color: '#29EDFF',
+          position: 'absolite',
+          width: '150px',
+          left: '6px',
+        }}
+      >
+        Назад
+      </button>
     </div>
   );
 }

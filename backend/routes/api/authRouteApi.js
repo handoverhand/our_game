@@ -50,7 +50,9 @@ authRouterApi.post('/auth/reg', async (req, res) => {
     user = await User.findOne({ where: { login } });
 
     if (user) {
-      res.json({ message: 'Пользователем с таким логин и/или паролем уже существует.' });
+      res.json({
+        message: 'Пользователем с таким логин и/или паролем уже существует.',
+      });
       return;
     }
   } catch ({ message }) {
@@ -104,7 +106,11 @@ authRouterApi.get('/auth/logout', (req, res) => {
 authRouterApi.get('/', async (req, res) => {
   if (req.session.user) {
     const user = await User.findOne({ where: { id: req.session.user.id } });
-    res.json({ isAdmin: true, login: req.session.user.login, score: user.score });
+    res.json({
+      isAdmin: true,
+      login: req.session.user.login,
+      score: user.score,
+    });
   } else {
     res.json({ isAdmin: false });
   }

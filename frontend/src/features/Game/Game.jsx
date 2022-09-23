@@ -21,22 +21,16 @@ function Game() {
     <div className="game-container">
       <div className="topic-container">
         {topics.map((item) => (
-          <div className="topic-card" style={{ backgroundColor: '#29EDFF', color: '#4520AB' }} key={item.id}>
+          <div className="topic-card" key={item.id}>
             <h2 className="topic-title">{item.title}</h2>
           </div>
         ))}
       </div>
       <div className="question-container">
-        {
-          questions.map((item) => (
-            // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-            <QuestionCard
-              key={item.id}
-              item={item}
-            />
-
-          ))
-        }
+        {questions.map((item) => (
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+          <QuestionCard key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );

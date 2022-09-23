@@ -39,8 +39,7 @@ function QuestionCard({ item }) {
         body: JSON.stringify({
           price,
         }),
-      })
-        .then((res) => res.json());
+      }).then((res) => res.json());
       setModal(false);
       setVisible(false);
     } else {
@@ -54,8 +53,9 @@ function QuestionCard({ item }) {
           // eslint-disable-next-line react/button-has-type
           <button
             className="question-card"
-            onClick={() => { setModal(true); }}
-            style={{ backgroundColor: '#4520AB', color: '#29EDFF', }}
+            onClick={() => {
+              setModal(true);
+            }}
           >
             <h1 className="question-price">{item.price}</h1>
           </button>
@@ -64,42 +64,44 @@ function QuestionCard({ item }) {
           <button
             className="question-card-disabled"
             disabled
-        // onClick={() => { setModal(true); }}
-            style={{ backgroundColor: '#4520AB', color: '#29EDFF', }}
+            // onClick={() => { setModal(true); }}
           >
             <h1 className="question-price">{item.price}</h1>
           </button>
         )}
       </div>
-      {
-        modal && (
-          <div className="overlay">
-            <div className="question-modal">
-              <div className="modal-cont">
-                <h4 className="question">{item.content}</h4>
-                { incorect ? (
-                  <>
-                    <h5>Ответ неверный!</h5>
-                    <p>
-                      Правильный ответ:
-                      {item.answer}
-                    </p>
-                  </>
-                ) : (
-                  <p>  </p>)}
-                <form data-price={item.price} method="PUT" onSubmit={(event) => handleSubmit(event, item)}>
-                  <input type="text" placeholder="Ваш ответ..." name="answer" />
-                  <button type="submit">Ответить</button>
-                </form>
-                <div>
-                  Время идет:
-                  {timer}
-                </div>
+      {modal && (
+        <div className="overlay">
+          <div className="question-modal">
+            <div className="modal-cont">
+              <h4 className="question">{item.content}</h4>
+              {incorect ? (
+                <>
+                  <h5>Ответ неверный!</h5>
+                  <p>
+                    Правильный ответ:
+                    {item.answer}
+                  </p>
+                </>
+              ) : (
+                <p> </p>
+              )}
+              <form
+                data-price={item.price}
+                method="PUT"
+                onSubmit={(event) => handleSubmit(event, item)}
+              >
+                <input type="text" placeholder="Ваш ответ..." name="answer" />
+                <button type="submit">Ответить</button>
+              </form>
+              <div>
+                Время идет:
+                {timer}
               </div>
             </div>
           </div>
-        )
-      }
+        </div>
+      )}
     </>
   );
 }

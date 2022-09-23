@@ -28,12 +28,10 @@ function Game() {
   }, []);
 
   useEffect(() => {
-    console.log('efect');
+    console.log(isChange);
     fetch('/data/actualscore')
       .then((data) => data.json())
-      .then((res) =>
-        setContext({ ...context, score: res.score, login: res.login })
-      );
+      .then((res) => setContext({ ...context, score: res.score }));
   }, [isChange]);
 
   return (
@@ -41,7 +39,7 @@ function Game() {
       <div className="info">
         {' '}
         <div>Сейчас играет: {context.login}</div>
-        <div>Общее количество очков в раунде: {context.score}</div>
+        <div>Общее количество очков пользователя: {context.score}</div>
       </div>
 
       <div className="game-container">

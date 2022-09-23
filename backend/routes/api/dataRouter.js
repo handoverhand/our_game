@@ -30,7 +30,7 @@ router.get('/actualscore', async (req, res) => {
   }
 });
 
-router.put('/user', async (req, res) => {
+router.put('/user/increment', async (req, res) => {
   const { price } = req.body;
   try {
     const user = await User.findOne({
@@ -38,6 +38,21 @@ router.put('/user', async (req, res) => {
     });
     const incrementResult = await user.increment('score', {
       by: Number(price),
+    });
+    res.json(incrementResult);
+  } catch (error) {
+    res.json({ success: false });
+  }
+});
+router.put('/user/decrement', async (req, res) => {
+  const { price } = req.body;
+  try {
+    const user = await User.findOne({
+      where: { id: req.session.user.id },
+    });
+
+    const incrementResult = await user.increment('score', {
+      by: -Number(price),
     });
     res.json(incrementResult);
   } catch (error) {

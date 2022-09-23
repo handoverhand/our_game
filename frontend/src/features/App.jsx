@@ -13,16 +13,25 @@ import UserContext from './Context/Context';
 import Layout from './Layout/Layout';
 import Reg from './Auth/Reg';
 import Game from './Game/Game';
+import TopGame from './TopGame/TopGame';
 
 function App() {
-  const [context, setContext] = useState({ user: null, login: null, score: null });
+  const [context, setContext] = useState({
+    user: null,
+    login: null,
+    score: null,
+  });
 
   useEffect(() => {
     fetch('api/')
       .then((result) => result.json())
       .then((data) => {
         const id = setTimeout(() => {
-          setContext({ user: data.isAdmin, login: data.login, score: data.score });
+          setContext({
+            user: data.isAdmin,
+            login: data.login,
+            score: data.score,
+          });
           clearTimeout(id);
         }, 1800);
       });
@@ -35,7 +44,7 @@ function App() {
         <Route path="/lk" element={<Lk />} />
         <Route path="/reg" element={<Reg />} />
         <Route path="/log" element={<Login />} />
-
+        <Route path="/topgamers" element={<TopGame />} />
         <Route path="/" element={<Layout />}>
           <Route path="/game" element={<Game />} />
         </Route>

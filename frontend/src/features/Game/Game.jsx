@@ -42,15 +42,16 @@ function Game() {
       .then((data) => setInitscore(data.score));
   }, []);
 
-  console.log(context.score);
-
   return (
     <>
       <div className="info">
         {' '}
-        <div>Сейчас играет: {context.login}</div>
-        <div>Общее количество очков пользователя: {context.score}</div>
-        <div>Your game score: {context.gameScore}</div>
+        <div>
+          {' '}
+          <h2> Сейчас играет: {context.login}</h2>{' '}
+          <h2> Общее количество очков пользователя: {context.score}</h2>
+          <h2> Your game score: {context.gameScore}</h2>
+        </div>
       </div>
 
       <div className="game-container">

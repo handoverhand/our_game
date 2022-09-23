@@ -49,9 +49,9 @@ function Reg() {
             <input type="password" name="password" className="form-control form-control-lg" placeholder="Пароль" style={{ marginTop: '10px', marginBottom: '10px' }} />
             <input type="password" name="checkPassword" className="form-control form-control-lg" placeholder="Потвердите пароль" style={{ marginTop: '10px', marginBottom: '10px' }} />
             <div className="helpText" style={{ color: 'red' }} />
-            <button type="submit" className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Зарегистрироваться</button>
+            <button type="submit" className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: 'violet', color: 'white' }}>Зарегистрироваться</button>
             <div>
-              <button type="submit" onClick={() => navigate('/')} className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: '#4520AB', color: '#29EDFF' }}>Назад</button>
+              <button type="submit" onClick={() => navigate('/')} className="btn btn-primary btn-lg" style={{ marginTop: '30px', backgroundColor: 'violet', color: 'white' }}>Назад</button>
             </div>
           </form>
         </header>
